@@ -120,7 +120,7 @@ void selection(Genetic *genetic)
     double maxFit = maxElement(genetic->fitnesses, genetic->populationSize);
     for(int i = 0; i < genetic->populationSize; i++)
     {
-        genetic->fitnesses[i] = -(genetic->fitnesses[i] - maxFit);
+        genetic->fitnesses[i] = 1 / genetic->fitnesses[i];
     }
     double sum = 0;
     for(int i = 0; i < genetic->populationSize; i++)
@@ -136,7 +136,7 @@ void selection(Genetic *genetic)
     genetic->roulleteNumbers[genetic->populationSize - 1] = sum;
     for(int i = 0; i < genetic->populationSize; i++)
     {
-        double randRoulletValue = rand() % (int)(roulleteSum * 100) / 100.;
+        double randRoulletValue = (rand() % (int)(roulleteSum * 100)) / 100.;
         for(int j = 0; j < genetic->populationSize; j++)
         {
             if(randRoulletValue < genetic->roulleteNumbers[j])
