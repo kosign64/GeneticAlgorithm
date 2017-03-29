@@ -179,7 +179,7 @@ void mutation(Genetic *genetic)
     for(int i = 2; i < genetic->populationSize; i++)
     {
         int mut = rand() % 100;
-        if(mut < genetic->mutationProbability) return;
+        if(mut > genetic->mutationProbability) return;
         int paramNum = rand() % genetic->paramSize;
         double mutation = (rand() % 20) / 10. - 10;
         genetic->organisms[i][paramNum] += mutation;
