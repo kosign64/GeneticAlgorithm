@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-static double maxElement(double elems[], int size)
+static double maxElement(const double elems[], int size)
 {
     double max = 0;
     for(int i = 0; i < size; i++)
@@ -16,7 +16,7 @@ static double maxElement(double elems[], int size)
     return max;
 }
 
-static int minElement(double elems[], int size)
+static int minElement(const double elems[], int size)
 {
     double min = 0;
     int num = 0;
@@ -31,7 +31,7 @@ static int minElement(double elems[], int size)
     return num;
 }
 
-static int maxElementNum(double elems[], int size)
+static int maxElementNum(const double elems[], int size)
 {
     double max = 0;
     int num = 0;
