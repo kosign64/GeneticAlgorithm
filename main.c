@@ -11,7 +11,7 @@ double func(double params[], int size)
 int main()
 {
     Genetic genetic;
-    Organism *result = geneticAlgorithm(&genetic, 5, 100, 1000, &func, 5);
+    Organism *result = geneticAlgorithm(&genetic, 5, 30, 1000, &func, 30);
     printf("best = %lf %lf %lf %lf %lf, result = %lf", (*result)[0], (*result)[1],
             (*result)[2], (*result)[3], (*result)[4], func(*result, 5));
 
