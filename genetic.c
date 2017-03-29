@@ -50,9 +50,10 @@ static int secondMaxElement(double elems[], int size, int maxNum)
 {
     double max = 0;
     int num = 0;
+    const double maxVal = elems[maxNum];
     for(int i = 0; i < size; i++)
     {
-        if(i == maxNum) continue;
+        if(elems[i] == maxVal) continue;
         if(elems[i] > max)
         {
             num = i;
