@@ -159,21 +159,13 @@ void crossover(Genetic *genetic)
     {
         int p1 = rand() % genetic->populationSize;
         int p2 = rand() % genetic->populationSize;
-        int point = rand() % genetic->paramSize;
-        int order = rand() % 2;
         Organism *parent1 = &genetic->parentsPool[p1];
         Organism *parent2 = &genetic->parentsPool[p2];
         Organism *org = &genetic->children[i];
         for(int j = 0; j < genetic->paramSize; j++)
         {
-            if(j < point)
-            {
-                (*org)[j] = (order == 0) ? (*parent1)[j] : (*parent2)[j];
-            }
-            else
-            {
-                (*org)[j] = (order == 0) ? (*parent2)[j] : (*parent1)[j];
-            }
+            double alpha = (rand() % 2000) / 100. - 10;
+            (*org)[j] = (*parent1)[j] + alpha * ((*parent2)[j] - (*parent1)[j]);
         }
     }
     for(int i = 0; i < genetic->populationSize; i++)
